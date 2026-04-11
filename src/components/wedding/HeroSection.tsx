@@ -71,7 +71,14 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
           </p>
         </div>
 
-        <div className="hero-reveal-fade" style={{ animationDelay: "1.8s" }}>
+        <div className="hero-reveal-up" style={{ animationDelay: "1.7s" }}>
+          <p className="font-cormorant text-lg md:text-xl text-burgundy/80 leading-relaxed mb-10 max-w-lg mx-auto">
+            Мы рады сообщить Вам, что состоится самое главное торжество в нашей жизни — день нашей свадьбы!<br />
+            Приглашаем Вас разделить с нами радость этого незабываемого дня.
+          </p>
+        </div>
+
+        <div className="hero-reveal-fade" style={{ animationDelay: "2.0s" }}>
           <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-gold/30 shadow-2xl mb-10">
             <img src={FLOWER_IMAGE} alt="Цветы" className="w-full h-full object-cover" />
           </div>
