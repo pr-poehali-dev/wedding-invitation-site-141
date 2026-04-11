@@ -254,46 +254,33 @@ export default function Index() {
               <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
                 <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Церемония</p>
                 <h3 className="font-cormorant text-2xl text-burgundy mb-1">Екатерининский зал</h3>
-                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Дворец бракосочетания</p>
+                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide mb-3">Дворец бракосочетания · г. Краснодар</p>
+                <div className="flex gap-2">
+                  <a href="https://yandex.ru/maps/?text=Краснодар+Дворец+бракосочетания+Екатерининский+зал" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-1 font-montserrat text-xs text-burgundy border border-burgundy/30 px-3 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300">
+                    <Icon name="MapPin" size={12} />Яндекс
+                  </a>
+                  <a href="https://maps.google.com/?q=Краснодар+Дворец+бракосочетания+Екатерининский+зал" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-1 font-montserrat text-xs text-burgundy border border-burgundy/30 px-3 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300">
+                    <Icon name="Navigation" size={12} />Google
+                  </a>
+                </div>
               </div>
               <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
                 <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Банкет</p>
                 <h3 className="font-cormorant text-2xl text-burgundy mb-1">Двин Холл</h3>
-                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Банкетный зал</p>
+                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide mb-3">Банкетный зал · г. Краснодар</p>
+                <div className="flex gap-2">
+                  <a href="https://yandex.ru/maps/?text=Краснодар+Двин+Холл" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-1 font-montserrat text-xs text-burgundy border border-burgundy/30 px-3 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300">
+                    <Icon name="MapPin" size={12} />Яндекс
+                  </a>
+                  <a href="https://maps.google.com/?q=Краснодар+Двин+Холл" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-1 font-montserrat text-xs text-burgundy border border-burgundy/30 px-3 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300">
+                    <Icon name="Navigation" size={12} />Google
+                  </a>
+                </div>
               </div>
-            </div>
-
-            <div className="relative w-full h-64 bg-burgundy/5 border border-burgundy/15 overflow-hidden">
-              <iframe
-                title="Карта"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.7!2d37.6155!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2z0KHQsNC00L7QstCw0Y8g0YPQu9C40YbQsCwg0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1"
-                className="w-full h-full"
-                style={{ filter: "sepia(40%) saturate(0.6) hue-rotate(310deg)" }}
-                allowFullScreen
-                loading="lazy"
-              />
-              <div className="absolute inset-0 pointer-events-none border border-burgundy/10" />
-            </div>
-
-            <div className="flex justify-center gap-4 mt-4">
-              <a
-                href="https://yandex.ru/maps/?text=Москва+ул+Садовая+15"
-                target="_blank"
-                rel="noreferrer"
-                className="font-montserrat text-xs tracking-widest uppercase text-burgundy border border-burgundy/30 px-6 py-3 hover:bg-burgundy hover:text-milk transition-all duration-300 flex items-center gap-2"
-              >
-                <Icon name="MapPin" size={14} />
-                Яндекс Карты
-              </a>
-              <a
-                href="https://maps.google.com/?q=Москва+ул+Садовая+15"
-                target="_blank"
-                rel="noreferrer"
-                className="font-montserrat text-xs tracking-widest uppercase text-burgundy border border-burgundy/30 px-6 py-3 hover:bg-burgundy hover:text-milk transition-all duration-300 flex items-center gap-2"
-              >
-                <Icon name="Navigation" size={14} />
-                Google Maps
-              </a>
             </div>
           </div>
 
