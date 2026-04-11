@@ -92,31 +92,7 @@ export default function DetailsSection({ sectionRef }: Props) {
           </div>
         </div>
 
-        <Divider />
 
-        <div className="text-center">
-          <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
-            Музыка вечера
-          </p>
-          <h3 className="font-cormorant text-3xl text-burgundy mb-6">
-            Атмосфера праздника
-          </h3>
-          <div className="bg-burgundy/5 border border-burgundy/15 p-8 inline-block">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 rounded-full bg-burgundy/10 flex items-center justify-center">
-                <Icon name="Music" size={20} className="text-burgundy/70" />
-              </div>
-              <div className="text-left">
-                <p className="font-cormorant text-xl text-burgundy">Живая музыка</p>
-                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Струнный квартет & DJ</p>
-              </div>
-            </div>
-            <p className="font-cormorant-infant italic text-burgundy/60 text-sm leading-relaxed">
-              Предложите свою любимую песню в опросе ниже —<br />
-              мы постараемся включить её в плейлист вечера
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
