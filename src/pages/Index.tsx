@@ -175,7 +175,7 @@ export default function Index() {
                 Дата торжества
               </p>
               <p className="font-cormorant text-4xl text-burgundy">
-                14 июня 2026 года
+                19 июня 2026 года
               </p>
               <p className="font-montserrat text-xs tracking-widest text-gold mt-1">
                 Пятница · 16:30
@@ -258,7 +258,7 @@ export default function Index() {
               </div>
               <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
                 <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Банкет</p>
-                <h3 className="font-cormorant text-2xl text-burgundy mb-1">Двинн Холл</h3>
+                <h3 className="font-cormorant text-2xl text-burgundy mb-1">Двин Холл</h3>
                 <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Банкетный зал</p>
               </div>
             </div>
@@ -561,7 +561,7 @@ export default function Index() {
               Юрий & Анна
             </p>
             <p className="font-montserrat text-xs tracking-widest text-gold mt-2">
-              14 · 06 · 2026
+              19 · 06 · 2026
             </p>
           </div>
         </div>
