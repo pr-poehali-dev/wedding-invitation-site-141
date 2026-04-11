@@ -1,0 +1,1 @@
+ALTER TABLE wedding_responses ADD COLUMN transfer TEXT;

@@ -28,6 +28,7 @@ def handler(event: dict, context) -> dict:
     children = body.get("children", "0")
     alcohol = body.get("alcohol", [])
     second_day = body.get("secondDay", "")
+    transfer = body.get("transfer", "")
     dietary = body.get("dietary", "")
     song = body.get("song", "")
     message = body.get("message", "")
@@ -37,11 +38,11 @@ def handler(event: dict, context) -> dict:
     cur.execute(
         """
         INSERT INTO wedding_responses
-          (name, attending, guests, children, alcohol, second_day, dietary, song, message)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+          (name, attending, guests, children, alcohol, second_day, transfer, dietary, song, message)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         RETURNING id
         """,
-        (name, attending, guests, children, alcohol, second_day, dietary, song, message),
+        (name, attending, guests, children, alcohol, second_day, transfer, dietary, song, message),
     )
     row = cur.fetchone()
     conn.commit()

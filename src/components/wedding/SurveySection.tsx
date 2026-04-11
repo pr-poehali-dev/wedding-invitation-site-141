@@ -194,6 +194,31 @@ export default function SurveySection({
                 </div>
 
                 <div>
+                  <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
+                    Нужен ли вам трансфер?
+                  </label>
+                  <div className="flex gap-3">
+                    {[
+                      { value: "yes", label: "Да, нужен" },
+                      { value: "no", label: "Нет, спасибо" },
+                    ].map((opt) => (
+                      <button
+                        type="button"
+                        key={opt.value}
+                        onClick={() => setSurvey({ ...survey, transfer: opt.value as SurveyData["transfer"] })}
+                        className={`flex-1 py-3 font-montserrat text-xs tracking-wider uppercase border transition-all duration-300 ${
+                          survey.transfer === opt.value
+                            ? "bg-burgundy text-milk border-burgundy"
+                            : "bg-transparent text-burgundy border-burgundy/30 hover:border-burgundy/60"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
                   <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-2">
                     Особые пожелания по меню
                   </label>

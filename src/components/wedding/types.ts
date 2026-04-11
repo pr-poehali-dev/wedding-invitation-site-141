@@ -5,6 +5,7 @@ export type SurveyData = {
   children: string;
   alcohol: string[];
   secondDay: "yes" | "no" | "maybe" | "";
+  transfer: "yes" | "no" | "";
   dietary: string;
   song: string;
   message: string;
