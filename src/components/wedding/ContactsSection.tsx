@@ -29,14 +29,14 @@ export default function ContactsSection({ sectionRef }: Props) {
               name: "Анна",
               role: "Невеста",
               phone: "+7 (914) 291-46-89",
-              telegram: "@nastya_wed",
+              telegram: "@Ann_Mas",
               icon: "Crown",
             },
             {
               name: "Юрий",
               role: "Жених",
               phone: "+7 (918) 121-66-31",
-              telegram: "@dmitry_wed",
+              telegram: "@ririruo",
               icon: "Heart",
             },
           ].map((contact, i) => (
