@@ -165,7 +165,7 @@ export default function SurveySection({
 
                 <div>
                   <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
-                    Планируете ли второй день?
+                    Будете ли присутствовать на втором дне свадьбы?
                   </label>
                   <div className="flex gap-3">
                     {[
