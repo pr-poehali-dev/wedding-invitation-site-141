@@ -70,7 +70,7 @@ export default function DetailsSection({ sectionRef }: Props) {
             Палитра нашей свадьбы
           </h3>
           <div className="flex items-center justify-center gap-4">
-            {["#5C1A28", "#8B2635", "#6B7E6B", "#C4A882", "#F5F0DC"].map((color, i) => (
+            {["#5C1A28", "#8B2635", "#6B7E6B", "#C4A882", "#F5F0DC", "#1A1A1A"].map((color, i) => (
               <div
                 key={i}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-md"
