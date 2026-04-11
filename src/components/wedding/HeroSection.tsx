@@ -64,7 +64,7 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
     <section
       id="hero"
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4"
+      className="min-h-screen flex flex-col items-center justify-start relative pt-28 pb-10 px-4"
     >
       <div className="text-center max-w-xl mx-auto relative z-10 w-full">
 
