@@ -1,11 +1,16 @@
 import Icon from "@/components/ui/icon";
 import Divider from "./Divider";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type Props = {
   sectionRef: (el: HTMLElement | null) => void;
 };
 
 export default function ContactsSection({ sectionRef }: Props) {
+  const headingRef = useScrollReveal();
+  const cardsRef = useScrollReveal(0.1);
+  const footerRef = useScrollReveal(0.1);
+
   return (
     <section
       id="contacts"
@@ -13,17 +18,19 @@ export default function ContactsSection({ sectionRef }: Props) {
       className="py-24 px-6 bg-milk-dark"
     >
       <div className="max-w-3xl mx-auto text-center">
-        <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
-          Организаторы
-        </p>
-        <h2 className="font-cormorant text-5xl font-light text-burgundy mb-4">
-          Есть вопросы?
-        </h2>
-        <p className="font-cormorant-infant italic text-burgundy/60 text-xl mb-12">
-          Свяжитесь с нами — мы ответим на любые вопросы
-        </p>
+        <div ref={headingRef} className="scroll-reveal">
+          <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
+            Организаторы
+          </p>
+          <h2 className="font-cormorant text-5xl font-light text-burgundy mb-4">
+            Есть вопросы?
+          </h2>
+          <p className="font-cormorant-infant italic text-burgundy/60 text-xl mb-12">
+            Свяжитесь с нами — мы ответим на любые вопросы
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
+        <div ref={cardsRef} className="scroll-reveal grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
           {[
             {
               name: "Анна",
@@ -77,7 +84,7 @@ export default function ContactsSection({ sectionRef }: Props) {
 
         <Divider />
 
-        <div className="mt-4">
+        <div ref={footerRef} className="scroll-reveal mt-4">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-gold/40" />
             <span className="font-cormorant-infant italic text-3xl text-burgundy/40">✦</span>

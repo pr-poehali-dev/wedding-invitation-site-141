@@ -1,4 +1,5 @@
 import { type SurveyData } from "./types";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type Props = {
   sectionRef: (el: HTMLElement | null) => void;
@@ -17,6 +18,9 @@ export default function SurveySection({
   setSurveySubmitted,
   onSubmit,
 }: Props) {
+  const headingRef = useScrollReveal();
+  const formRef = useScrollReveal(0.05);
+
   return (
     <section
       id="survey"
@@ -24,7 +28,7 @@ export default function SurveySection({
       className="py-24 px-6 bg-milk"
     >
       <div className="max-w-xl mx-auto">
-        <div className="text-center mb-12">
+        <div ref={headingRef} className="scroll-reveal text-center mb-12">
           <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
             Подтверждение
           </p>
@@ -37,7 +41,7 @@ export default function SurveySection({
         </div>
 
         {surveySubmitted ? (
-          <div className="text-center py-16 animate-fade-in-up" style={{ opacity: 0 }}>
+          <div className="text-center py-16 scroll-reveal scroll-visible">
             <div className="text-6xl mb-6">🌹</div>
             <h3 className="font-cormorant text-4xl text-burgundy mb-4">
               Спасибо, {survey.name || "дорогой гость"}!
@@ -57,7 +61,7 @@ export default function SurveySection({
             </button>
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="space-y-6">
+          <form ref={formRef} onSubmit={onSubmit} className="scroll-reveal space-y-6">
             <div>
               <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-2">
                 Ваше имя *
