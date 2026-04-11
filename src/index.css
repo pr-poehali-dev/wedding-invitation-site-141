@@ -99,3 +99,83 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Wedding hero animations */
+.hero-reveal {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero-reveal-up {
+  opacity: 0;
+  animation-name: fade-in-up;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-duration: 0.9s;
+}
+
+.hero-reveal-fade {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-duration: 1.1s;
+}
+
+.hero-name-letter {
+  display: inline-block;
+  opacity: 0;
+  animation-name: letter-drop;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-duration: 0.7s;
+}
+
+.hero-line-grow {
+  transform: scaleX(0);
+  transform-origin: center;
+  animation-name: line-grow;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-duration: 0.8s;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes letter-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

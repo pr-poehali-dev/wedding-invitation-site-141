@@ -7,6 +7,22 @@ type Props = {
   onScrollToSurvey: () => void;
 };
 
+function AnimatedName({ name, baseDelay }: { name: string; baseDelay: number }) {
+  return (
+    <>
+      {name.split("").map((letter, i) => (
+        <span
+          key={i}
+          className="hero-name-letter"
+          style={{ animationDelay: `${baseDelay + i * 0.07}s` }}
+        >
+          {letter}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
   return (
     <section
@@ -15,39 +31,53 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
       className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-16 px-6"
     >
       <div className="text-center max-w-2xl mx-auto relative z-10">
-        <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
+
+        <div className="hero-reveal-fade" style={{ animationDelay: "0.1s" }}>
           <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-6">
             Мы приглашаем вас на нашу свадьбу
           </p>
         </div>
 
-        <div className="animate-fade-in-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
+        <div>
           <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-2">
-            Юрий
+            <AnimatedName name="Юрий" baseDelay={0.4} />
           </h1>
+
           <div className="flex items-center justify-center gap-6 my-4">
-            <div className="h-px w-16 bg-gold" />
-            <span className="text-gold text-3xl font-light">&</span>
-            <div className="h-px w-16 bg-gold" />
+            <div
+              className="hero-line-grow h-px w-16 bg-gold"
+              style={{ animationDelay: "0.85s" }}
+            />
+            <span
+              className="hero-reveal-fade text-gold text-3xl font-light"
+              style={{ animationDelay: "1s" }}
+            >
+              &
+            </span>
+            <div
+              className="hero-line-grow h-px w-16 bg-gold"
+              style={{ animationDelay: "0.85s" }}
+            />
           </div>
+
           <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-8">
-            Анна
+            <AnimatedName name="Анна" baseDelay={1.1} />
           </h1>
         </div>
 
-        <div className="animate-fade-in-up" style={{ animationDelay: "0.7s", opacity: 0 }}>
+        <div className="hero-reveal-up" style={{ animationDelay: "1.5s" }}>
           <p className="font-cormorant-infant italic text-2xl text-burgundy/70 mb-10 leading-relaxed">
             «Там, где любовь, там и жизнь»
           </p>
         </div>
 
-        <div className="animate-fade-in" style={{ animationDelay: "0.9s", opacity: 0 }}>
+        <div className="hero-reveal-fade" style={{ animationDelay: "1.8s" }}>
           <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-gold/30 shadow-2xl mb-10">
             <img src={FLOWER_IMAGE} alt="Цветы" className="w-full h-full object-cover" />
           </div>
         </div>
 
-        <div className="animate-fade-in-up" style={{ animationDelay: "1.1s", opacity: 0 }}>
+        <div className="hero-reveal-up" style={{ animationDelay: "2.1s" }}>
           <div className="bg-burgundy/5 border border-burgundy/15 px-10 py-6 inline-block">
             <p className="font-montserrat text-xs tracking-[0.3em] uppercase text-burgundy/60 mb-2">
               Дата торжества
@@ -61,13 +91,15 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
           </div>
         </div>
 
-        <div className="mt-10 animate-fade-in" style={{ animationDelay: "1.3s", opacity: 0 }}>
-          <button
-            onClick={onScrollToSurvey}
-            className="font-montserrat text-xs tracking-[0.3em] uppercase text-milk bg-burgundy px-10 py-4 hover:bg-burgundy-light transition-colors duration-300"
-          >
-            Подтвердить присутствие
-          </button>
+        <div className="hero-reveal-fade" style={{ animationDelay: "2.4s" }}>
+          <div className="mt-10">
+            <button
+              onClick={onScrollToSurvey}
+              className="font-montserrat text-xs tracking-[0.3em] uppercase text-milk bg-burgundy px-10 py-4 hover:bg-burgundy-light transition-colors duration-300"
+            >
+              Подтвердить присутствие
+            </button>
+          </div>
         </div>
       </div>
 
