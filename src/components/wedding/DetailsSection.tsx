@@ -9,6 +9,7 @@ type Props = {
 export default function DetailsSection({ sectionRef }: Props) {
   const headingRef = useScrollReveal();
   const timelineRef = useScrollReveal(0.1);
+  const paletteRef = useScrollReveal(0.1);
   const venueRef = useScrollReveal(0.1);
 
   return (
@@ -61,7 +62,7 @@ export default function DetailsSection({ sectionRef }: Props) {
         <Divider />
 
         {/* Color palette */}
-        <div className="scroll-reveal text-center mb-16">
+        <div ref={paletteRef} className="scroll-reveal text-center mb-16">
           <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
             Цветовая гамма
           </p>
