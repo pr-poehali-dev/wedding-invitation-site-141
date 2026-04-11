@@ -1,6 +1,40 @@
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
 
 const FLOWER_IMAGE = "https://cdn.poehali.dev/projects/a2d99f7d-7830-4d4a-9a9c-96665d730cac/files/3175be7c-2491-4d1b-a5fa-a839ab9a3134.jpg";
+const WEDDING_DATE = new Date("2026-06-19T16:30:00");
+
+function useCountdown() {
+  const calc = () => {
+    const diff = WEDDING_DATE.getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / 86400000),
+      hours: Math.floor((diff % 86400000) / 3600000),
+      minutes: Math.floor((diff % 3600000) / 60000),
+      seconds: Math.floor((diff % 60000) / 1000),
+    };
+  };
+  const [time, setTime] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setTime(calc()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+}
+
+function CountdownUnit({ value, label }: { value: number; label: string }) {
+  return (
+    <div className="flex flex-col items-center">
+      <span className="font-cormorant text-4xl md:text-5xl font-light text-burgundy leading-none">
+        {String(value).padStart(2, "0")}
+      </span>
+      <span className="font-montserrat text-xs tracking-widest uppercase text-gold mt-1">
+        {label}
+      </span>
+    </div>
+  );
+}
 
 type Props = {
   sectionRef: (el: HTMLElement | null) => void;
@@ -24,6 +58,8 @@ function AnimatedName({ name, baseDelay }: { name: string; baseDelay: number }) 
 }
 
 export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
+  const countdown = useCountdown();
+
   return (
     <section
       id="hero"
@@ -95,6 +131,23 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
             <p className="font-montserrat text-xs tracking-widest text-gold mt-1">
               Пятница · 16:30
             </p>
+          </div>
+        </div>
+
+        <div className="hero-reveal-up" style={{ animationDelay: "2.3s" }}>
+          <div className="mt-8">
+            <p className="font-montserrat text-xs tracking-[0.3em] uppercase text-burgundy/40 mb-4">
+              До свадьбы осталось
+            </p>
+            <div className="flex items-center justify-center gap-6 md:gap-10">
+              <CountdownUnit value={countdown.days} label="дней" />
+              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <CountdownUnit value={countdown.hours} label="часов" />
+              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <CountdownUnit value={countdown.minutes} label="минут" />
+              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <CountdownUnit value={countdown.seconds} label="секунд" />
+            </div>
           </div>
         </div>
 
