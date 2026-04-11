@@ -65,7 +65,7 @@ export default function DetailsSection({ sectionRef }: Props) {
             Места проведения
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
-            <div className="scroll-reveal scroll-reveal-delay-2 flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
+            <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
               <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Церемония</p>
               <h3 className="font-cormorant text-2xl text-burgundy mb-1">Екатерининский зал</h3>
               <p className="font-montserrat text-xs text-burgundy/50 tracking-wide mb-3">Дворец бракосочетания · г. Краснодар</p>
@@ -80,7 +80,7 @@ export default function DetailsSection({ sectionRef }: Props) {
                 </a>
               </div>
             </div>
-            <div className="scroll-reveal scroll-reveal-delay-3 flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
+            <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
               <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Банкет</p>
               <h3 className="font-cormorant text-2xl text-burgundy mb-1">Двин Холл</h3>
               <p className="font-montserrat text-xs text-burgundy/50 tracking-wide mb-3">Банкетный зал · г. Краснодар</p>
