@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/icon";
 
-const FLOWER_IMAGE = "https://cdn.poehali.dev/projects/a2d99f7d-7830-4d4a-9a9c-96665d730cac/files/d6033308-1142-472e-9cf7-048c7094102a.jpg";
+const FLOWER_IMAGE = "https://cdn.poehali.dev/projects/a2d99f7d-7830-4d4a-9a9c-96665d730cac/files/89e1abc4-6dff-44d4-a1cb-6c6fff464485.jpg";
 
 type Props = {
   sectionRef: (el: HTMLElement | null) => void;
