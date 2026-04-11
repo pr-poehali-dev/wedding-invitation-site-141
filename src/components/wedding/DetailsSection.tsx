@@ -60,6 +60,47 @@ export default function DetailsSection({ sectionRef }: Props) {
 
         <Divider />
 
+        {/* Color palette */}
+        <div className="scroll-reveal text-center mb-16">
+          <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-4">
+            Цветовая гамма
+          </p>
+          <h3 className="font-cormorant text-3xl font-light text-burgundy mb-8">
+            Палитра нашей свадьбы
+          </h3>
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+            <div className="relative w-full md:w-64 h-48 rounded-sm overflow-hidden shadow-lg flex-shrink-0">
+              <img
+                src="https://cdn.poehali.dev/projects/a2d99f7d-7830-4d4a-9a9c-96665d730cac/bucket/6c13d089-d4bd-47ca-899d-17413fdbc15b.jpg"
+                alt="Цветовая палитра свадьбы"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-3 w-full md:w-auto">
+              {[
+                { color: "#5C1A28", name: "Тёмный бордо", desc: "Основной акцент" },
+                { color: "#8B2635", name: "Бордо", desc: "Детали декора" },
+                { color: "#6B7E6B", name: "Шалфей", desc: "Зелень и флористика" },
+                { color: "#C4A882", name: "Золото", desc: "Металлические акценты" },
+                { color: "#F5F0DC", name: "Крем", desc: "Основной фон" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex-shrink-0 border border-white/30 shadow-md"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <div className="text-left">
+                    <p className="font-cormorant text-lg text-burgundy leading-none">{item.name}</p>
+                    <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <Divider />
+
         <div ref={venueRef} className="scroll-reveal text-center mt-12">
           <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-6">
             Места проведения
