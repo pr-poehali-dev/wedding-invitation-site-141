@@ -487,18 +487,18 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
             {[
               {
-                name: "Анастасия",
-                role: "Координатор торжества",
-                phone: "+7 (999) 123-45-67",
+                name: "Анна",
+                role: "Невеста",
+                phone: "+7 (914) 291-46-89",
                 telegram: "@nastya_wed",
                 icon: "Crown",
               },
               {
-                name: "Дмитрий",
-                role: "По вопросам трансфера",
-                phone: "+7 (999) 765-43-21",
+                name: "Юрий",
+                role: "Жених",
+                phone: "+7 (918) 121-66-31",
                 telegram: "@dmitry_wed",
-                icon: "Car",
+                icon: "Heart",
               },
             ].map((contact, i) => (
               <div
