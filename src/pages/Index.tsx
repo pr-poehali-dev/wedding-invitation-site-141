@@ -218,9 +218,10 @@ export default function Index() {
 
           <div className="space-y-10">
             {[
-              { time: "15:30", title: "Сбор гостей", desc: "Встреча и приветственные напитки", icon: "Users" },
-              { time: "16:00", title: "Церемония", desc: "Торжественная регистрация брака", icon: "Heart" },
-              { time: "17:00", title: "Фотосессия", desc: "Прогулка и памятные снимки", icon: "Camera" },
+              { time: "16:00", title: "Сбор гостей", desc: "Встреча и приветственные напитки", icon: "Users" },
+              { time: "16:30", title: "Церемония", desc: "Торжественная регистрация брака", icon: "Heart" },
+              { time: "17:00", title: "Фуршет", desc: "Лёгкие закуски и напитки", icon: "UtensilsCrossed" },
+              { time: "17:30", title: "Фотосессия", desc: "Прогулка и памятные снимки", icon: "Camera" },
               { time: "18:00", title: "Банкет", desc: "Торжественный ужин и танцы", icon: "Music" },
             ].map((item, i) => (
               <div key={i} className="flex gap-8 items-start group">
