@@ -26,10 +26,10 @@ function useCountdown() {
 function CountdownUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="font-cormorant text-4xl md:text-5xl font-light text-burgundy leading-none">
+      <span className="font-cormorant text-3xl md:text-5xl font-light text-burgundy leading-none">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="font-montserrat text-xs tracking-widest uppercase text-gold mt-1">
+      <span className="font-montserrat text-[10px] md:text-xs tracking-widest uppercase text-gold mt-1">
         {label}
       </span>
     </div>
@@ -64,98 +64,89 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
     <section
       id="hero"
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center justify-center relative pt-24 pb-16 px-6"
+      className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-10 px-4"
     >
-      <div className="text-center max-w-2xl mx-auto relative z-10">
+      <div className="text-center max-w-xl mx-auto relative z-10 w-full">
 
         <div className="hero-reveal-fade" style={{ animationDelay: "0.1s" }}>
-          <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-6">
+          <p className="font-montserrat text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.4em] uppercase text-gold mb-4">
             Мы приглашаем вас на нашу свадьбу
           </p>
         </div>
 
         <div>
-          <h1 className="font-cormorant text-6xl md:text-9xl font-light text-burgundy leading-none mb-2">
+          <h1 className="font-cormorant text-5xl md:text-9xl font-light text-burgundy leading-none mb-1">
             <AnimatedName name="Юрий" baseDelay={0.4} />
           </h1>
 
-          <div className="flex items-center justify-center gap-6 my-4">
-            <div
-              className="hero-line-grow h-px w-16 bg-gold"
-              style={{ animationDelay: "0.85s" }}
-            />
-            <span
-              className="hero-reveal-fade text-gold text-3xl font-light"
-              style={{ animationDelay: "1s" }}
-            >
+          <div className="flex items-center justify-center gap-4 my-2">
+            <div className="hero-line-grow h-px w-12 md:w-16 bg-gold" style={{ animationDelay: "0.85s" }} />
+            <span className="hero-reveal-fade text-gold text-2xl md:text-3xl font-light" style={{ animationDelay: "1s" }}>
               &
             </span>
-            <div
-              className="hero-line-grow h-px w-16 bg-gold"
-              style={{ animationDelay: "0.85s" }}
-            />
+            <div className="hero-line-grow h-px w-12 md:w-16 bg-gold" style={{ animationDelay: "0.85s" }} />
           </div>
 
-          <h1 className="font-cormorant text-6xl md:text-9xl font-light text-burgundy leading-none mb-8">
+          <h1 className="font-cormorant text-5xl md:text-9xl font-light text-burgundy leading-none mb-5">
             <AnimatedName name="Анна" baseDelay={1.1} />
           </h1>
         </div>
 
         <div className="hero-reveal-up" style={{ animationDelay: "1.5s" }}>
-          <p className="font-cormorant-infant italic text-2xl text-burgundy/70 mb-10 leading-relaxed">
+          <p className="font-cormorant-infant italic text-lg md:text-2xl text-burgundy/70 mb-5 leading-relaxed">
             «Там, где любовь, там и жизнь»
           </p>
         </div>
 
         <div className="hero-reveal-up" style={{ animationDelay: "1.7s" }}>
-          <p className="font-cormorant text-lg md:text-xl text-burgundy/80 leading-relaxed mb-10 max-w-lg mx-auto">
+          <p className="font-cormorant text-base md:text-xl text-burgundy/80 leading-relaxed mb-6 max-w-sm md:max-w-lg mx-auto px-2">
             Мы рады сообщить Вам, что состоится самое главное торжество в нашей жизни — день нашей свадьбы!<br />
             Приглашаем Вас разделить с нами радость этого незабываемого дня.
           </p>
         </div>
 
         <div className="hero-reveal-fade" style={{ animationDelay: "2.0s" }}>
-          <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-gold/30 shadow-2xl mb-10">
+          <div className="w-44 h-44 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden border-4 border-gold/30 shadow-2xl mb-6">
             <img src={FLOWER_IMAGE} alt="Цветы" className="w-full h-full object-cover" />
           </div>
         </div>
 
         <div className="hero-reveal-up" style={{ animationDelay: "2.1s" }}>
-          <div className="bg-burgundy/5 border border-burgundy/15 px-10 py-6 inline-block">
-            <p className="font-montserrat text-xs tracking-[0.3em] uppercase text-burgundy/60 mb-2">
+          <div className="bg-burgundy/5 border border-burgundy/15 px-6 md:px-10 py-4 md:py-6 inline-block">
+            <p className="font-montserrat text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-burgundy/60 mb-1">
               Дата торжества
             </p>
-            <p className="font-cormorant text-4xl text-burgundy">
+            <p className="font-cormorant text-2xl md:text-4xl text-burgundy">
               19 июня 2026 года
             </p>
-            <p className="font-montserrat text-xs tracking-widest text-gold mt-1">
+            <p className="font-montserrat text-[10px] md:text-xs tracking-widest text-gold mt-1">
               Пятница · 16:30
             </p>
           </div>
         </div>
 
         <div className="hero-reveal-up" style={{ animationDelay: "2.3s" }}>
-          <div className="mt-8">
-            <p className="font-montserrat text-xs tracking-[0.3em] uppercase text-burgundy/40 mb-4">
+          <div className="mt-5">
+            <p className="font-montserrat text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-burgundy/40 mb-3">
               До свадьбы осталось
             </p>
-            <div className="flex items-center justify-center gap-6 md:gap-10">
+            <div className="flex items-center justify-center gap-4 md:gap-10">
               <CountdownUnit value={countdown.days} label="дней" />
-              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
               <CountdownUnit value={countdown.hours} label="часов" />
-              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
               <CountdownUnit value={countdown.minutes} label="минут" />
-              <span className="font-cormorant text-3xl text-burgundy/30 mb-4">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
               <CountdownUnit value={countdown.seconds} label="секунд" />
             </div>
           </div>
         </div>
 
         <div className="hero-reveal-fade" style={{ animationDelay: "2.4s" }}>
-          <div className="mt-10">
+          <div className="mt-6">
             <button
               onClick={onScrollToSurvey}
-              className="font-montserrat text-xs tracking-[0.3em] uppercase text-milk bg-burgundy px-10 py-4 hover:bg-burgundy-light transition-colors duration-300"
+              className="font-montserrat text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-milk bg-burgundy px-8 md:px-10 py-3 md:py-4 hover:bg-burgundy-light transition-colors duration-300"
             >
               Подтвердить присутствие
             </button>
@@ -163,8 +154,8 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <Icon name="ChevronDown" size={20} className="text-burgundy/40" />
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+        <Icon name="ChevronDown" size={18} className="text-burgundy/40" />
       </div>
     </section>
   );
