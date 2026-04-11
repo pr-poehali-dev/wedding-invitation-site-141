@@ -106,7 +106,7 @@ export default function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-milk/90 backdrop-blur-sm border-b border-burgundy/10">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <span className="font-cormorant-infant italic text-burgundy/60 text-sm tracking-widest uppercase">
-            А & М
+            Ю & А
           </span>
           <div className="flex gap-6">
             {navItems.map((item) => (
@@ -141,7 +141,7 @@ export default function Index() {
 
           <div className="animate-fade-in-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
             <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-2">
-              Алексей
+              Юрий
             </h1>
             <div className="flex items-center justify-center gap-6 my-4">
               <div className="h-px w-16 bg-gold" />
@@ -149,7 +149,7 @@ export default function Index() {
               <div className="h-px w-16 bg-gold" />
             </div>
             <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-8">
-              Мария
+              Анна
             </h1>
           </div>
 
@@ -552,7 +552,7 @@ export default function Index() {
               <div className="h-px w-12 bg-gold/40" />
             </div>
             <p className="font-cormorant text-2xl italic text-burgundy/50">
-              Алексей & Мария
+              Юрий & Анна
             </p>
             <p className="font-montserrat text-xs tracking-widest text-gold mt-2">
               14 · 06 · 2025
