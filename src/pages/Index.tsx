@@ -52,8 +52,27 @@ export default function Index() {
     sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSurveySubmit = (e: React.FormEvent) => {
+  const handleSurveySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      await fetch("https://functions.poehali.dev/e17b77e0-c386-413c-af44-ca8f8f6dc579", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: survey.name,
+          attending: survey.attending,
+          guests: survey.guests,
+          children: survey.children,
+          alcohol: survey.alcohol,
+          secondDay: survey.secondDay,
+          dietary: survey.dietary,
+          song: survey.song,
+          message: survey.message,
+        }),
+      });
+    } catch (_e) {
+      console.error("Ошибка отправки ответа", _e);
+    }
     setSurveySubmitted(true);
   };
 

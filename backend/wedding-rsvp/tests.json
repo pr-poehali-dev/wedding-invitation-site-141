@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Сохранение ответа гостя",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "attending": "yes",
+        "guests": "2",
+        "children": "0",
+        "alcohol": ["Вино", "Шампанское"],
+        "secondDay": "maybe",
+        "dietary": "",
+        "song": "Земфира — Хочешь",
+        "message": "Поздравляем!"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial",
+      "responseType": "json"
+    }
+  ]
+}
