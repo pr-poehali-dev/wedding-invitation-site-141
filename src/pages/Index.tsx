@@ -43,6 +43,9 @@ type SurveyData = {
   name: string;
   attending: "yes" | "no" | "maybe" | "";
   guests: string;
+  children: string;
+  alcohol: string[];
+  secondDay: "yes" | "no" | "maybe" | "";
   dietary: string;
   song: string;
   message: string;
@@ -55,6 +58,9 @@ export default function Index() {
     name: "",
     attending: "",
     guests: "1",
+    children: "0",
+    alcohol: [],
+    secondDay: "",
     dietary: "",
     song: "",
     message: "",
@@ -412,6 +418,82 @@ export default function Index() {
                     </select>
                   </div>
 
+                  {/* Children */}
+                  <div>
+                    <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-2">
+                      Будут ли с вами дети?
+                    </label>
+                    <select
+                      value={survey.children}
+                      onChange={(e) => setSurvey({ ...survey, children: e.target.value })}
+                      className="w-full bg-transparent border-b border-burgundy/30 py-3 font-cormorant text-lg text-burgundy focus:outline-none focus:border-burgundy transition-colors duration-200 cursor-pointer"
+                    >
+                      {["0", "1", "2", "3", "4+"].map((n) => (
+                        <option key={n} value={n} className="bg-milk text-burgundy">
+                          {n === "0" ? "Нет, без детей" : n === "1" ? "1 ребёнок" : `${n} детей`}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Alcohol */}
+                  <div>
+                    <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
+                      Предпочтения по алкоголю
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {["Шампанское", "Вино", "Коньяк", "Виски", "Водка", "Пиво", "Не употребляю"].map((drink) => (
+                        <button
+                          type="button"
+                          key={drink}
+                          onClick={() => {
+                            const list = survey.alcohol.includes(drink)
+                              ? survey.alcohol.filter((d) => d !== drink)
+                              : drink === "Не употребляю"
+                              ? ["Не употребляю"]
+                              : [...survey.alcohol.filter((d) => d !== "Не употребляю"), drink];
+                            setSurvey({ ...survey, alcohol: list });
+                          }}
+                          className={`px-4 py-2 font-montserrat text-xs tracking-wide border transition-all duration-300 ${
+                            survey.alcohol.includes(drink)
+                              ? "bg-burgundy text-milk border-burgundy"
+                              : "bg-transparent text-burgundy border-burgundy/30 hover:border-burgundy/60"
+                          }`}
+                        >
+                          {drink}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Second day */}
+                  <div>
+                    <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
+                      Планируете ли второй день?
+                    </label>
+                    <div className="flex gap-3">
+                      {[
+                        { value: "yes", label: "Да, буду!" },
+                        { value: "maybe", label: "Возможно" },
+                        { value: "no", label: "Нет" },
+                      ].map((opt) => (
+                        <button
+                          type="button"
+                          key={opt.value}
+                          onClick={() => setSurvey({ ...survey, secondDay: opt.value as SurveyData["secondDay"] })}
+                          className={`flex-1 py-3 font-montserrat text-xs tracking-wider uppercase border transition-all duration-300 ${
+                            survey.secondDay === opt.value
+                              ? "bg-burgundy text-milk border-burgundy"
+                              : "bg-transparent text-burgundy border-burgundy/30 hover:border-burgundy/60"
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Dietary */}
                   <div>
                     <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-2">
                       Особые пожелания по меню
