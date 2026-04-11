@@ -135,7 +135,7 @@ export default function Index() {
         <div className="text-center max-w-2xl mx-auto relative z-10">
           <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
             <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-6">
-              Мы приглашаем вас разделить с нами
+              Мы приглашаем вас на нашу свадьбу
             </p>
           </div>
 
@@ -155,8 +155,7 @@ export default function Index() {
 
           <div className="animate-fade-in-up" style={{ animationDelay: "0.7s", opacity: 0 }}>
             <p className="font-cormorant-infant italic text-2xl text-burgundy/70 mb-10 leading-relaxed">
-              «Любовь долготерпит, милосердствует,<br />
-              любовь не завидует...»
+              «Там, где любовь, там и жизнь»
             </p>
           </div>
 
@@ -176,10 +175,10 @@ export default function Index() {
                 Дата торжества
               </p>
               <p className="font-cormorant text-4xl text-burgundy">
-                14 июня 2025 года
+                14 июня 2026 года
               </p>
               <p className="font-montserrat text-xs tracking-widest text-gold mt-1">
-                Суббота · 16:00
+                Пятница · 16:30
               </p>
             </div>
           </div>
@@ -334,7 +333,7 @@ export default function Index() {
               Будете с нами?
             </h2>
             <p className="font-cormorant-infant italic text-burgundy/60">
-              Просим ответить до 1 мая 2025 года
+              Просим ответить до 1 мая 2026 года
             </p>
           </div>
 
@@ -555,7 +554,7 @@ export default function Index() {
               Юрий & Анна
             </p>
             <p className="font-montserrat text-xs tracking-widest text-gold mt-2">
-              14 · 06 · 2025
+              14 · 06 · 2026
             </p>
           </div>
         </div>
