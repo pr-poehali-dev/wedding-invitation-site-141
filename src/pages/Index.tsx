@@ -248,14 +248,20 @@ export default function Index() {
 
           <div className="text-center mt-12">
             <p className="font-montserrat text-xs tracking-[0.4em] uppercase text-gold mb-6">
-              Место проведения
+              Места проведения
             </p>
-            <h3 className="font-cormorant text-3xl text-burgundy mb-2">
-              Банкетный зал «Усадьба»
-            </h3>
-            <p className="font-montserrat text-sm text-burgundy/50 tracking-wide mb-8">
-              г. Москва, ул. Садовая, д. 15
-            </p>
+            <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
+              <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
+                <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Церемония</p>
+                <h3 className="font-cormorant text-2xl text-burgundy mb-1">Екатерининский зал</h3>
+                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Дворец бракосочетания</p>
+              </div>
+              <div className="flex-1 bg-burgundy/5 border border-burgundy/15 px-6 py-5">
+                <p className="font-montserrat text-xs tracking-widest uppercase text-gold mb-2">Банкет</p>
+                <h3 className="font-cormorant text-2xl text-burgundy mb-1">Двинн Холл</h3>
+                <p className="font-montserrat text-xs text-burgundy/50 tracking-wide">Банкетный зал</p>
+              </div>
+            </div>
 
             <div className="relative w-full h-64 bg-burgundy/5 border border-burgundy/15 overflow-hidden">
               <iframe
