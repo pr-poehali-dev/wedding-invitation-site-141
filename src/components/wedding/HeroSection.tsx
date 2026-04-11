@@ -28,7 +28,7 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
     <section
       id="hero"
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-16 px-6"
+      className="min-h-screen flex flex-col items-center justify-center relative pt-24 pb-16 px-6"
     >
       <div className="text-center max-w-2xl mx-auto relative z-10">
 
@@ -39,7 +39,7 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
         </div>
 
         <div>
-          <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-2">
+          <h1 className="font-cormorant text-6xl md:text-9xl font-light text-burgundy leading-none mb-2">
             <AnimatedName name="Юрий" baseDelay={0.4} />
           </h1>
 
@@ -60,7 +60,7 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
             />
           </div>
 
-          <h1 className="font-cormorant text-7xl md:text-9xl font-light text-burgundy leading-none mb-8">
+          <h1 className="font-cormorant text-6xl md:text-9xl font-light text-burgundy leading-none mb-8">
             <AnimatedName name="Анна" baseDelay={1.1} />
           </h1>
         </div>
