@@ -69,23 +69,37 @@ export default function DetailsSection({ sectionRef }: Props) {
           <h3 className="font-cormorant text-3xl font-light text-burgundy mb-8">
             Палитра нашей свадьбы
           </h3>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            {[
-              { color: "#1A1A1A", name: "Чёрный" },
-              { color: "#5C1A28", name: "Бордо" },
-              { color: "#8B2635", name: "Бургунди" },
-              { color: "#6B7E6B", name: "Шалфей" },
-              { color: "#C4A882", name: "Золото" },
-              { color: "#F5F0DC", name: "Молочный" },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
-                <div
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white shadow-md"
-                  style={{ backgroundColor: item.color }}
-                />
-                <span className="font-montserrat text-[9px] uppercase tracking-wider text-burgundy/50">{item.name}</span>
-              </div>
-            ))}
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center justify-center gap-4 md:gap-6">
+              {[
+                { color: "#1A1A1A", name: "Чёрный" },
+                { color: "#5C1A28", name: "Бордо" },
+                { color: "#8B2635", name: "Бургунди" },
+                { color: "#6B7E6B", name: "Шалфей" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                  <div
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white shadow-md"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <span className="font-montserrat text-[9px] uppercase tracking-wider text-burgundy/50">{item.name}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-4 md:gap-6">
+              {[
+                { color: "#C4A882", name: "Золото" },
+                { color: "#F5F0DC", name: "Молочный" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                  <div
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white shadow-md"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <span className="font-montserrat text-[9px] uppercase tracking-wider text-burgundy/50">{item.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
