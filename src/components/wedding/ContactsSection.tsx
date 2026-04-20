@@ -87,7 +87,7 @@ export default function ContactsSection({ sectionRef }: Props) {
         <div ref={footerRef} className="scroll-reveal mt-4">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-gold/40" />
-            <span className="font-cormorant-infant italic text-3xl text-burgundy/40">♥</span>
+            <Icon name="Heart" size={18} className="text-burgundy/40" />
             <div className="h-px w-12 bg-gold/40" />
           </div>
           <p className="font-cormorant text-2xl italic text-burgundy/50">
