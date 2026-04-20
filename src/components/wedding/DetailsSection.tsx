@@ -70,12 +70,21 @@ export default function DetailsSection({ sectionRef }: Props) {
             Палитра нашей свадьбы
           </h3>
           <div className="flex items-center justify-center gap-4">
-            {["#1A1A1A", "#5C1A28", "#8B2635", "#6B7E6B", "#C4A882"].map((color, i) => (
-              <div
-                key={i}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white shadow-md"
-                style={{ backgroundColor: color }}
-              />
+            {[
+              { color: "#1A1A1A", name: "Чёрный" },
+              { color: "#5C1A28", name: "Бордо" },
+              { color: "#8B2635", name: "Бургунди" },
+              { color: "#6B7E6B", name: "Шалфей" },
+              { color: "#C4A882", name: "Золото" },
+              { color: "#F5F0DC", name: "Молочный" },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white shadow-md"
+                  style={{ backgroundColor: item.color }}
+                />
+                <span className="font-montserrat text-[9px] uppercase tracking-wider text-burgundy/50">{item.name}</span>
+              </div>
             ))}
           </div>
         </div>
