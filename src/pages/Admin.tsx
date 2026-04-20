@@ -44,7 +44,7 @@ export default function Admin() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
         headers: { "x-admin-password": password },
       });
       const data = await res.json();
@@ -63,7 +63,7 @@ export default function Admin() {
   const refresh = async () => {
     setLoading(true);
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
         headers: { "x-admin-password": password },
       });
       const data = await res.json();

@@ -8,13 +8,16 @@ def handler(event: dict, context) -> dict:
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password",
+        "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password, x-admin-password",
     }
 
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": headers, "body": ""}
 
-    password = event.get("headers", {}).get("x-admin-password", "").strip()
+    password = (
+        event.get("headers", {}).get("x-admin-password", "") or
+        event.get("queryStringParameters", {}).get("p", "")
+    ).strip()
     expected = os.environ.get("ADMIN_PASSWORD", "").strip()
     print(f"[AUTH] received='{password}' expected='{expected}' match={password == expected}")
     if password != expected:
