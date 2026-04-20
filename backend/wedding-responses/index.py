@@ -21,11 +21,16 @@ def handler(event: dict, context) -> dict:
     if event.get("httpMethod") == "DELETE":
         conn = psycopg2.connect(os.environ["DATABASE_URL"])
         cur = conn.cursor()
-        cur.execute("DELETE FROM wedding_responses")
+        path = event.get("path", "/")
+        parts = [p for p in path.strip("/").split("/") if p]
+        if parts and parts[-1].isdigit():
+            cur.execute("DELETE FROM wedding_responses WHERE id = %s", (int(parts[-1]),))
+        else:
+            cur.execute("DELETE FROM wedding_responses")
         conn.commit()
         cur.close()
         conn.close()
-        return {"statusCode": 200, "headers": headers, "body": json.dumps({"success": True, "message": "Все ответы удалены"})}
+        return {"statusCode": 200, "headers": headers, "body": json.dumps({"success": True}, ensure_ascii=False)}
 
     conn = psycopg2.connect(os.environ["DATABASE_URL"])
     cur = conn.cursor()

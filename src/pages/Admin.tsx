@@ -89,6 +89,19 @@ export default function Admin() {
     setLoading(false);
   };
 
+  const deleteOne = async (id: number) => {
+    if (!confirm("Удалить этот ответ?")) return;
+    try {
+      const res = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: { "x-admin-password": password },
+      });
+      if (res.ok) setResponses((prev) => prev.filter((r) => r.id !== id));
+    } catch (_e) {
+      console.error(_e);
+    }
+  };
+
   const attending = responses.filter((r) => r.attending === "yes").length;
   const maybe = responses.filter((r) => r.attending === "maybe").length;
   const no = responses.filter((r) => r.attending === "no").length;
@@ -192,9 +205,18 @@ export default function Admin() {
               <div key={r.id} className="bg-white/60 border border-burgundy/10 p-5 hover:border-burgundy/25 transition-colors duration-200">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-cormorant text-2xl text-burgundy">{r.name}</h3>
-                  <span className="font-montserrat text-xs text-burgundy/40 whitespace-nowrap">
-                    {new Date(r.createdAt).toLocaleDateString("ru-RU", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}
-                  </span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="font-montserrat text-xs text-burgundy/40 whitespace-nowrap hidden sm:block">
+                      {new Date(r.createdAt).toLocaleDateString("ru-RU", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}
+                    </span>
+                    <button
+                      onClick={() => deleteOne(r.id)}
+                      className="text-burgundy/30 hover:text-red-500 transition-colors duration-200"
+                      title="Удалить ответ"
+                    >
+                      <Icon name="X" size={16} />
+                    </button>
+                  </div>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <div>

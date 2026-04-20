@@ -130,13 +130,13 @@ export default function HeroSection({ sectionRef, onScrollToSurvey }: Props) {
             <p className="font-montserrat text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-burgundy/40 mb-3">
               До свадьбы осталось
             </p>
-            <div className="flex items-center justify-center gap-4 md:gap-10">
+            <div className="flex items-center justify-center gap-2 md:gap-10 overflow-x-auto px-2">
               <CountdownUnit value={countdown.days} label="дней" />
-              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3 shrink-0">·</span>
               <CountdownUnit value={countdown.hours} label="часов" />
-              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3 shrink-0">·</span>
               <CountdownUnit value={countdown.minutes} label="минут" />
-              <span className="font-cormorant text-2xl text-burgundy/30 mb-3">·</span>
+              <span className="font-cormorant text-2xl text-burgundy/30 mb-3 shrink-0">·</span>
               <CountdownUnit value={countdown.seconds} label="секунд" />
             </div>
           </div>
