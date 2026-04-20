@@ -69,7 +69,7 @@ export default function DetailsSection({ sectionRef }: Props) {
           <h3 className="font-cormorant text-3xl font-light text-burgundy mb-8">
             Палитра нашей свадьбы
           </h3>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
             {[
               { color: "#1A1A1A", name: "Чёрный" },
               { color: "#5C1A28", name: "Бордо" },
