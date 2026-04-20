@@ -85,16 +85,16 @@ export default function Index() {
       ))}
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-milk/90 backdrop-blur-sm border-b border-burgundy/10">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="font-cormorant-infant italic text-burgundy/60 text-sm tracking-widest uppercase">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
+          <span className="font-cormorant-infant italic text-burgundy/60 text-sm tracking-widest uppercase shrink-0">
             Ю & А
           </span>
-          <div className="flex gap-6">
+          <div className="flex gap-4 overflow-x-auto scrollbar-none flex-1 justify-end">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`font-montserrat text-xs tracking-widest uppercase transition-all duration-300 ${
+                className={`font-montserrat text-xs tracking-widest uppercase transition-all duration-300 whitespace-nowrap shrink-0 ${
                   activeSection === item.id
                     ? "text-burgundy border-b border-burgundy"
                     : "text-burgundy/50 hover:text-burgundy/80"
