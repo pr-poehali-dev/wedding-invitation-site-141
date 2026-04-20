@@ -15,7 +15,9 @@ def handler(event: dict, context) -> dict:
         return {"statusCode": 200, "headers": headers, "body": ""}
 
     password = event.get("headers", {}).get("x-admin-password", "").strip()
-    if password != os.environ.get("ADMIN_PASSWORD", "").strip():
+    expected = os.environ.get("ADMIN_PASSWORD", "").strip()
+    print(f"[AUTH] received='{password}' expected='{expected}' match={password == expected}")
+    if password != expected:
         return {"statusCode": 401, "headers": headers, "body": json.dumps({"error": "Неверный пароль"})}
 
     if event.get("httpMethod") == "DELETE":
