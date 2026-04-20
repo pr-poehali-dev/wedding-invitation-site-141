@@ -1,14 +1,13 @@
 import json
 import os
 import psycopg2
-# redeploy
 
 
 def handler(event: dict, context) -> dict:
-    """Получение списка ответов гостей для страницы администратора."""
+    """Получение и удаление ответов гостей для страницы администратора."""
     headers = {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Methods": "GET, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password",
     }
 
@@ -18,6 +17,15 @@ def handler(event: dict, context) -> dict:
     password = event.get("headers", {}).get("x-admin-password", "")
     if password != os.environ.get("ADMIN_PASSWORD", ""):
         return {"statusCode": 401, "headers": headers, "body": json.dumps({"error": "Неверный пароль"})}
+
+    if event.get("httpMethod") == "DELETE":
+        conn = psycopg2.connect(os.environ["DATABASE_URL"])
+        cur = conn.cursor()
+        cur.execute("DELETE FROM wedding_responses")
+        conn.commit()
+        cur.close()
+        conn.close()
+        return {"statusCode": 200, "headers": headers, "body": json.dumps({"success": True, "message": "Все ответы удалены"})}
 
     conn = psycopg2.connect(os.environ["DATABASE_URL"])
     cur = conn.cursor()

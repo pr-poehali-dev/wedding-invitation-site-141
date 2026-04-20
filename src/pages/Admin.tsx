@@ -74,6 +74,21 @@ export default function Admin() {
     setLoading(false);
   };
 
+  const clearAll = async () => {
+    if (!confirm("Удалить все ответы? Это действие нельзя отменить.")) return;
+    setLoading(true);
+    try {
+      const res = await fetch(API_URL, {
+        method: "DELETE",
+        headers: { "x-admin-password": password },
+      });
+      if (res.ok) setResponses([]);
+    } catch (_e) {
+      console.error(_e);
+    }
+    setLoading(false);
+  };
+
   const attending = responses.filter((r) => r.attending === "yes").length;
   const maybe = responses.filter((r) => r.attending === "maybe").length;
   const no = responses.filter((r) => r.attending === "no").length;
@@ -124,14 +139,24 @@ export default function Admin() {
           <h1 className="font-cormorant text-2xl text-burgundy">Ответы гостей</h1>
           <p className="font-montserrat text-xs text-burgundy/40 tracking-wide">Юрий & Анна · 19 июня 2026</p>
         </div>
-        <button
-          onClick={refresh}
-          disabled={loading}
-          className="flex items-center gap-2 font-montserrat text-xs tracking-widest uppercase text-burgundy border border-burgundy/30 px-4 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300"
-        >
-          <Icon name="RefreshCw" size={14} />
-          Обновить
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={refresh}
+            disabled={loading}
+            className="flex items-center gap-2 font-montserrat text-xs tracking-widest uppercase text-burgundy border border-burgundy/30 px-4 py-2 hover:bg-burgundy hover:text-milk transition-all duration-300"
+          >
+            <Icon name="RefreshCw" size={14} />
+            Обновить
+          </button>
+          <button
+            onClick={clearAll}
+            disabled={loading}
+            className="flex items-center gap-2 font-montserrat text-xs tracking-widest uppercase text-red-600 border border-red-300 px-4 py-2 hover:bg-red-600 hover:text-white transition-all duration-300"
+          >
+            <Icon name="Trash2" size={14} />
+            Очистить
+          </button>
+        </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-8">
