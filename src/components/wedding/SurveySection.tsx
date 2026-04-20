@@ -36,7 +36,7 @@ export default function SurveySection({
             Будете с нами?
           </h2>
           <p className="font-cormorant-infant italic text-burgundy/60">
-            Просим ответить до 1 мая 2026 года
+            Просим ответить до 19 мая 2026 года
           </p>
         </div>
 
