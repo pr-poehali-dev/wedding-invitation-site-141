@@ -78,7 +78,7 @@ export default function Admin() {
     if (!confirm("Удалить все ответы? Это действие нельзя отменить.")) return;
     setLoading(true);
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
         method: "DELETE",
         headers: { "x-admin-password": password },
       });
@@ -92,7 +92,7 @@ export default function Admin() {
   const deleteOne = async (id: number) => {
     if (!confirm("Удалить этот ответ?")) return;
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/${id}?p=${encodeURIComponent(password)}`, {
         method: "DELETE",
         headers: { "x-admin-password": password },
       });
