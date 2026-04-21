@@ -108,7 +108,6 @@ export default function Admin() {
   const totalGuests = responses
     .filter((r) => r.attending === "yes" || r.attending === "maybe")
     .reduce((sum, r) => sum + (parseInt(r.guests) || 1), 0);
-  const needTransfer = responses.filter((r) => r.transfer === "yes").length;
   const secondDay = responses.filter((r) => r.secondDay === "yes").length;
 
   if (!authed) {
@@ -181,7 +180,6 @@ export default function Admin() {
             { label: "Возможно", value: maybe, icon: "HelpCircle" },
             { label: "Не придут", value: no, icon: "XCircle" },
             { label: "Всего гостей", value: totalGuests, icon: "UserPlus" },
-            { label: "Нужен трансфер", value: needTransfer, icon: "Car" },
             { label: "Второй день", value: secondDay, icon: "CalendarDays" },
           ].map((stat, i) => (
             <div key={i} className="bg-burgundy/5 border border-burgundy/15 px-5 py-4">
@@ -230,10 +228,6 @@ export default function Admin() {
                   <div>
                     <p className="font-montserrat text-[10px] uppercase tracking-wider text-burgundy/40 mb-1">Дети</p>
                     <p className="font-cormorant text-lg">{r.children === "0" ? "Нет" : r.children}</p>
-                  </div>
-                  <div>
-                    <p className="font-montserrat text-[10px] uppercase tracking-wider text-burgundy/40 mb-1">Трансфер</p>
-                    <p className="font-cormorant text-lg">{yesNoLabel[r.transfer] ?? "—"}</p>
                   </div>
                   <div>
                     <p className="font-montserrat text-[10px] uppercase tracking-wider text-burgundy/40 mb-1">Второй день</p>
