@@ -140,6 +140,32 @@ export default function SurveySection({
 
                 <div>
                   <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
+                    Будете ли присутствовать на втором дне свадьбы?
+                  </label>
+                  <div className="flex gap-3">
+                    {[
+                      { value: "yes", label: "Да, буду!" },
+                      { value: "maybe", label: "Возможно" },
+                      { value: "no", label: "Нет" },
+                    ].map((opt) => (
+                      <button
+                        type="button"
+                        key={opt.value}
+                        onClick={() => setSurvey({ ...survey, secondDay: opt.value as SurveyData["secondDay"] })}
+                        className={`flex-1 py-3 font-montserrat text-xs tracking-wider uppercase border transition-all duration-300 ${
+                          survey.secondDay === opt.value
+                            ? "bg-burgundy text-milk border-burgundy"
+                            : "bg-transparent text-burgundy border-burgundy/30 hover:border-burgundy/60"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
                     Предпочтения по алкоголю
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -162,32 +188,6 @@ export default function SurveySection({
                         }`}
                       >
                         {drink}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="font-montserrat text-xs tracking-[0.2em] uppercase text-burgundy/60 block mb-4">
-                    Будете ли присутствовать на втором дне свадьбы?
-                  </label>
-                  <div className="flex gap-3">
-                    {[
-                      { value: "yes", label: "Да, буду!" },
-                      { value: "maybe", label: "Возможно" },
-                      { value: "no", label: "Нет" },
-                    ].map((opt) => (
-                      <button
-                        type="button"
-                        key={opt.value}
-                        onClick={() => setSurvey({ ...survey, secondDay: opt.value as SurveyData["secondDay"] })}
-                        className={`flex-1 py-3 font-montserrat text-xs tracking-wider uppercase border transition-all duration-300 ${
-                          survey.secondDay === opt.value
-                            ? "bg-burgundy text-milk border-burgundy"
-                            : "bg-transparent text-burgundy border-burgundy/30 hover:border-burgundy/60"
-                        }`}
-                      >
-                        {opt.label}
                       </button>
                     ))}
                   </div>
