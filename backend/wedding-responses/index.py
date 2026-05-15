@@ -8,28 +8,28 @@ def handler(event: dict, context) -> dict:
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password, x-admin-password",
+        "Access-Control-Allow-Headers": "Content-Type",
     }
 
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": headers, "body": ""}
 
-    password = (
-        event.get("headers", {}).get("x-admin-password", "") or
-        event.get("queryStringParameters", {}).get("p", "")
-    ).strip()
+    params = event.get("queryStringParameters") or {}
+    password = params.get("p", "").strip()
     expected = os.environ.get("ADMIN_PASSWORD", "").strip()
     print(f"[AUTH] received='{password}' expected='{expected}' match={password == expected}")
     if password != expected:
         return {"statusCode": 401, "headers": headers, "body": json.dumps({"error": "Неверный пароль"})}
 
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    cur = conn.cursor()
+
     if event.get("httpMethod") == "DELETE":
-        conn = psycopg2.connect(os.environ["DATABASE_URL"])
-        cur = conn.cursor()
         path = event.get("path", "/")
         parts = [p for p in path.strip("/").split("/") if p]
         if parts and parts[-1].isdigit():
-            cur.execute("DELETE FROM wedding_responses WHERE id = %s", (int(parts[-1]),))
+            row_id = int(parts[-1])
+            cur.execute("DELETE FROM wedding_responses WHERE id = " + str(row_id))
         else:
             cur.execute("DELETE FROM wedding_responses")
         conn.commit()
@@ -37,8 +37,6 @@ def handler(event: dict, context) -> dict:
         conn.close()
         return {"statusCode": 200, "headers": headers, "body": json.dumps({"success": True}, ensure_ascii=False)}
 
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    cur = conn.cursor()
     cur.execute("""
         SELECT id, name, attending, guests, children, alcohol,
                second_day, transfer, dietary, song, message, created_at
