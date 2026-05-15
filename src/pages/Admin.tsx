@@ -44,9 +44,7 @@ export default function Admin() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
-        headers: { "x-admin-password": password },
-      });
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`);
       const data = await res.json();
       if (res.ok) {
         setResponses(data.responses);
@@ -54,7 +52,8 @@ export default function Admin() {
       } else {
         setError("Неверный пароль");
       }
-    } catch {
+    } catch (err) {
+      console.error("Login error:", err);
       setError("Ошибка соединения");
     }
     setLoading(false);
@@ -63,9 +62,7 @@ export default function Admin() {
   const refresh = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
-        headers: { "x-admin-password": password },
-      });
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`);
       const data = await res.json();
       if (res.ok) setResponses(data.responses);
     } catch (_e) {
@@ -80,7 +77,6 @@ export default function Admin() {
     try {
       const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}`, {
         method: "DELETE",
-        headers: { "x-admin-password": password },
       });
       if (res.ok) setResponses([]);
     } catch (_e) {
@@ -94,7 +90,6 @@ export default function Admin() {
     try {
       const res = await fetch(`${API_URL}/${id}?p=${encodeURIComponent(password)}`, {
         method: "DELETE",
-        headers: { "x-admin-password": password },
       });
       if (res.ok) setResponses((prev) => prev.filter((r) => r.id !== id));
     } catch (_e) {
