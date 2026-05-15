@@ -88,7 +88,7 @@ export default function Admin() {
   const deleteOne = async (id: number) => {
     if (!confirm("Удалить этот ответ?")) return;
     try {
-      const res = await fetch(`${API_URL}/${id}?p=${encodeURIComponent(password)}`, {
+      const res = await fetch(`${API_URL}?p=${encodeURIComponent(password)}&id=${id}`, {
         method: "DELETE",
       });
       if (res.ok) setResponses((prev) => prev.filter((r) => r.id !== id));

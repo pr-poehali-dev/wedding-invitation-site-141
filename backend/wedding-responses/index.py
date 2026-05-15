@@ -27,11 +27,9 @@ def handler(event: dict, context) -> dict:
     cur = conn.cursor()
 
     if event.get("httpMethod") == "DELETE":
-        path = event.get("path", "/")
-        parts = [p for p in path.strip("/").split("/") if p]
-        if parts and parts[-1].isdigit():
-            row_id = int(parts[-1])
-            cur.execute("DELETE FROM wedding_responses WHERE id = " + str(row_id))
+        row_id = params.get("id", "")
+        if row_id and str(row_id).isdigit():
+            cur.execute("DELETE FROM wedding_responses WHERE id = " + str(int(row_id)))
         else:
             cur.execute("DELETE FROM wedding_responses")
         conn.commit()
