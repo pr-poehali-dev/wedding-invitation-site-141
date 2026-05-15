@@ -54,7 +54,7 @@ export default function Admin() {
       }
     } catch (err) {
       console.error("Login error:", err);
-      setError("Ошибка соединения");
+      setError("Ошибка соединения: " + String(err));
     }
     setLoading(false);
   };
