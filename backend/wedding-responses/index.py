@@ -17,6 +17,8 @@ def handler(event: dict, context) -> dict:
     params = event.get("queryStringParameters") or {}
     password = params.get("p", "").strip()
     expected = os.environ.get("ADMIN_PASSWORD", "").strip()
+    print(f"[DEBUG] event keys: {list(event.keys())}")
+    print(f"[DEBUG] queryStringParameters raw: {repr(event.get('queryStringParameters'))}")
     print(f"[AUTH] received='{password}' expected='{expected}' match={password == expected}")
     if password != expected:
         return {"statusCode": 401, "headers": headers, "body": json.dumps({"error": "Неверный пароль"})}
