@@ -35,9 +35,7 @@ export default function SurveySection({
           <h2 className="font-cormorant text-5xl font-light text-burgundy mb-4">
             Будете с нами?
           </h2>
-          <p className="font-cormorant-infant italic text-burgundy/60">
-            Просим ответить до 19 мая 2026 года
-          </p>
+
         </div>
 
         {surveySubmitted ? (
